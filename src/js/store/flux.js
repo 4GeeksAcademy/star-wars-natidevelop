@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			person: {},
 			planeta: {},
 			favorito: [],
-			vehicles:[]
+			vehicles:[],
+			vehicle:{}
 
 
 		},
@@ -68,6 +69,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const data = await resp.json()
 						console.log(data.result)
 						setStore({ person: data.result })
+						return true
+					}
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+
+			},
+			obtenerInfoVehicle: async (id) => {
+				// console.log(id)
+				try {
+					const resp = await fetch("https://www.swapi.tech/api/vehicles/" + id, {
+						method: "GET",
+						headers: { "Content-Type": "application/json" }
+					})
+
+					if (resp.status == 200) {
+						const data = await resp.json()
+						console.log(data.result)
+						setStore({ vehicle: data.result })
 						return true
 					}
 				} catch (error) {

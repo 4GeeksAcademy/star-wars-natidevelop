@@ -15,7 +15,7 @@ const CardVehicles = ({ id, name, imageURL, description }) => {
                 <div className="card-body bg-dark bg-opacity-25 ">
                     <h5 className="card-title text-dark bg-dark bg-opacity-25">{name}</h5>
                     <p className="card-text text-danger">{description}</p>
-                    <Link to={"/singleVehiclees/" + id} className="btn btn-dark text-light text-opacity-50">Learn More !</Link>
+                    <Link to={"/singleVehicles/" + id} className="btn btn-dark text-light text-opacity-50">Learn More !</Link>
                     <button onClick={() => actions.favoritos(name)} type="button" className="btn btn-dark text-light text-opacity-50 m-1">
                         <span className="m-1">
                             <i className={`fa-solid fa-heart ${isFavorite ? "text-danger" : "text-secondary"}`}></i>
